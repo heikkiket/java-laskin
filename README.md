@@ -1,0 +1,2 @@
+# java-laskin
+Ohjelmoinnin harjoitustyö
