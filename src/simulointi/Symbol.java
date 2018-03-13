@@ -20,6 +20,12 @@ class DecimalDigit extends Symbol {
         this.value = input;
     }
 
+    public double getValue() {
+        return value;
+    }
+    
+    
+
     @Override
     public String toString() {
         return String.valueOf(this.value);
