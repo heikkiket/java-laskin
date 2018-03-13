@@ -19,17 +19,42 @@ public class Simulointi {
         
         Operator miinus = new Minus();
         Operator plus = new Plus();
+        Operator kerto = new Times();
+        Operator jako = new Division();
+        Operator potenssiin = new Pow();
+        Operator sulkuauki = new OpenParenthesis();
+        Operator sulkukiinni = new CloseParenthesis();
         
+        
+        DecimalDigit kolme = new DecimalDigit(3);
+        DecimalDigit neljä = new DecimalDigit(4);
+        DecimalDigit kaksi = new DecimalDigit(2);
+        DecimalDigit yksi = new DecimalDigit(1);
         DecimalDigit viisi = new DecimalDigit(5);
-        DecimalDigit kakspuol = new DecimalDigit(2.5);
+        DecimalDigit pi = new DecimalDigit(3.1415);
         
-        System.out.println(viisi);
+
         
         Lauseke lasku = new Lauseke();
         
-        lasku.addSymbol(viisi);
+        lasku.addSymbol(kolme);
         lasku.addSymbol(plus);
-        lasku.addSymbol(kakspuol);
+        lasku.addSymbol(neljä);
+        lasku.addSymbol(kerto);
+        lasku.addSymbol(kaksi);
+        lasku.addSymbol(jako);
+        lasku.addSymbol(sulkuauki);
+        lasku.addSymbol(yksi);
+        lasku.addSymbol(miinus);
+        lasku.addSymbol(viisi);
+        lasku.addSymbol(sulkukiinni);
+        lasku.addSymbol(potenssiin);
+        lasku.addSymbol(kaksi);
+        lasku.addSymbol(potenssiin);
+        lasku.addSymbol(pi);
+        
+        
+        lasku.shuntingYard();
         
         System.out.println(lasku);
     }

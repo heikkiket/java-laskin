@@ -23,7 +23,7 @@ class DecimalDigit extends Symbol {
     public double getValue() {
         return value;
     }
-    
+
     
 
     @Override
@@ -34,9 +34,14 @@ class DecimalDigit extends Symbol {
 
 class Operator extends Symbol {
     int weight;
+    boolean leftAssociative;
 
     public int weight() {
         return this.weight;
+    }
+
+    public boolean isLeftAssociative() {
+        return leftAssociative;
     }
     
     @Override
@@ -49,8 +54,10 @@ class Plus extends Operator {
 
     public Plus() {
         this.value = "+";
-        super.weight = 1;
+        this.weight = 1;
+        this.leftAssociative = false;
     } 
+    
 }
 
 class Minus extends Operator {
@@ -58,6 +65,7 @@ class Minus extends Operator {
     public Minus() {
         this.value = "-";
         this.weight = 1;
+        this.leftAssociative = true;
     }
 }
 
@@ -66,6 +74,7 @@ class Times extends Operator {
     public Times() {
         this.value = "*";
         this.weight = 2;
+        this.leftAssociative = false;
     }
     
 }
@@ -75,6 +84,7 @@ class Division extends Operator {
     public Division() {
         this.value = "/";
         this.weight = 2;
+        this.leftAssociative = true;
     }
 }
 
@@ -83,21 +93,23 @@ class Pow extends Operator {
     public Pow() {
         this.value = "^";
         this.weight = 3;
+        this.leftAssociative = false;
     }
-    
-    
+
 }
 
-class OpenParenthesis extends Symbol {
+class OpenParenthesis extends Operator {
 
     public OpenParenthesis() {
         this.value = "(";
+        this.weight = 4;
     }
     
 }
 
-class CloseParenthesis extends Symbol {
+class CloseParenthesis extends Operator {
     public CloseParenthesis() {
         this.value = ")";
+        this.weight = 4;
     }
 }
