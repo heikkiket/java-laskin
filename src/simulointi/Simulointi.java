@@ -15,7 +15,6 @@ public class Simulointi {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
         
         Operator miinus = new Minus();
         Operator plus = new Plus();
@@ -34,8 +33,10 @@ public class Simulointi {
         DecimalDigit pi = new DecimalDigit(3.1415);
         
 
-        
+        String lauseke = "3.0 + 4.0 * 2.0 / ( 1.0 - 5.0 ) ^ 2.0 ^ 3.1415";
         Lauseke lasku = new Lauseke();
+        Lauseke lasku2 = new Lauseke();
+        lasku2.lueLauseke(lauseke);
         
         lasku.addSymbol(kolme);
         lasku.addSymbol(plus);
@@ -53,10 +54,7 @@ public class Simulointi {
         lasku.addSymbol(potenssiin);
         lasku.addSymbol(pi);
         
-        
-        lasku.shuntingYard();
-        
-        System.out.println(lasku);
+        System.out.println(lasku2);
     }
     
 }
