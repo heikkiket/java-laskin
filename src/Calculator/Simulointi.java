@@ -33,13 +33,13 @@ public class Simulointi {
         DecimalDigit pi = new DecimalDigit(3.1415);
         
 
-        String lauseke = "2+3-5/(23+23.5*(34.4-23))";
-        Lauseke lasku = new Lauseke();
+        String lauseke = "2+3+-5/(23+23.5*(34.4-23))";
+        Lauseke lasku = new Lauseke("");
         lasku.lueLauseke(lauseke);
+        System.out.println(lasku);
         lasku.shuntingYard();
         System.out.println(lasku);
-        
-        
+       
     }
     
 }
