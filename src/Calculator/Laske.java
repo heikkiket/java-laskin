@@ -22,11 +22,6 @@ public class Laske {
     Laske (Lauseke lauseke){
         this.lauseke = lauseke;
     }
-    
-    public double laske() {
-        return 0.0;
-    }
-    
     public double lueLuvut(String n1){
         double dLuku=0.0;
         String tulos = "";
@@ -84,54 +79,6 @@ public class Laske {
         dLuku = Double.parseDouble(tulos);
         this.luvut.add(dLuku);
         
-        if (this.laskut.size()>0){
-            ArrayList<Double> luvut2;
-            ArrayList<Character> laskut2;
-            laskut2 = new ArrayList();
-            luvut2 = new ArrayList();
-            
-            
-            //(+ ja -) -lasku
-            for (int i =0;i<this.laskut.size();i++){
-                if (this.laskut.size()== 1 ){
-                //if(this.onkoJarjestys(i-1)){ 
-                    this.luvut.add(0,this.laskeLuvut(this.luvut.get(0), this.luvut.get(1), this.laskut.get(i)));
-                
-                    if (luvut.size()>2){
-                        this.luvut.remove(1);
-                        this.luvut.remove(1);
-                    }
-                }else{
-                  if (i < (this.laskut.size()-1)){
-                    if (jarjestys(laskut.get(i))<=jarjestys(laskut.get(i+1))){
-                        this.luvut.add(0,this.laskeLuvut(this.luvut.get(0), this.luvut.get(1), this.laskut.get(i)));
-                
-                        if (luvut.size()>2){
-                            this.luvut.remove(1);
-                            this.luvut.remove(1);
-                        }
-                        
-                    }else {//(jarjestys(laskut.get(i))<=jarjestys(laskut.get(i+1)))
-                        laskut2.add(0,laskut.get(i));
-                        
-                        }
-                    
-                    
-
-                        ;
-                   }else {// i == laskut.size()
-                        this.luvut.add(0,this.laskeLuvut(this.luvut.get(0), this.luvut.get(1), this.laskut.get(i)));
-                
-                        if (luvut.size()>2){
-                            this.luvut.remove(1);
-                            this.luvut.remove(1);
-                        }
-                      
-                  }
-                }
-            //}
-            }
-        }
         dLuku=this.luvut.get(0);
         return dLuku;
     }
@@ -144,6 +91,37 @@ public class Laske {
      * @param merkki
      * @return 
      */
+    
+    public double laske(){
+        double laskutulos=0.0;
+        ArrayList<Symbol> luvut=new ArrayList();//desimaaliluvut
+        ArrayList<Symbol> lasku = lauseke.getAlkiot(); // rpn- lasku
+        int koko = 0;
+        double tulos =0.0;
+        
+        koko = lasku.size();
+          
+            //(+ ja -) -lasku
+            for (Symbol alkio: lasku){
+                if (alkio instanceof DecimalDigit){
+                    luvut.add(0,alkio);
+                }else{
+                    DecimalDigit luku1 = (DecimalDigit) luvut.get(1);
+                    DecimalDigit luku2 = (DecimalDigit) luvut.get(0);
+                    Operator laskutoimitus = (Operator) alkio;
+                    tulos = this.laskeLuvut(luku1.getValue(), luku2.getValue(),alkio.value.charAt(0));
+                    luvut.add(0, new DecimalDigit(tulos));
+                    luvut.remove(1);
+                    luvut.remove(1);
+                }
+
+            }
+        
+        laskutulos= Double.parseDouble(luvut.get(0).value);
+        //laskutulos=lukuja.get(0);
+        return laskutulos;
+    }
+
     public int jarjestys(char merkki){
         int indeksi=0; //sulut
         if (merkki == '*')
@@ -154,36 +132,6 @@ public class Laske {
             indeksi = 3;
         
         return indeksi;
-    }
-    public boolean onkoJarjestys(int luku){
-        boolean on =false;
-        
-        char merkki1 = this.laskut.get(luku);
-        char merkki2 = this.laskut.get(luku+1);;
-        //if (laskut.size()>= (luku+1) )
-        //    merkki2 = this.laskut.get(luku+1);
-        
-        if (merkki1 == '('||merkki1 == ')'){
-            on = true;
-        }
-        if (merkki1 == '*'){
-            if (merkki2 != '('){
-                on  = true;
-            } else {
-                on = false;
-            }
-        }
-        if (merkki1 == '/'){
-            if (merkki2== '+'||merkki2== '-'){
-                on = true;
-            }else{
-                on = false;
-            }
-        }
-        if (merkki1 == merkki2)
-            on = true;
-       
-        return on;
     }
     public int laskutKoko(){
         int koko = 0;
@@ -227,6 +175,9 @@ public class Laske {
                 case '*':
                     tulos = (a*b)*1.0;
                     break;
+                case '^':
+                    tulos = Math.pow(a, b)*1.0;
+                    break;
                 default:  
                     break;
                     
@@ -236,10 +187,12 @@ public class Laske {
         return tulos;
     }
     
-/*    public static void main(String[] args) {
+    public static void main(String[] args) {
         double lasku = 2+3-5/(23+23.5*(34.0-23));
-        String mjono;
-        double tulos;
+        
+    /*    Lauseke lasku = new Lauseke("2+3-5/(23+23.5*(34.0-23))");
+        
+        double tulos = lasku.laske;
     
         System.out.println("2+3-5/(23+23,5*(34.0-23)) = "+lasku);
         
@@ -247,7 +200,7 @@ public class Laske {
         mjono = lukija.nextLine();
         
         System.out.println("\ntulos = " );
-        
+     */   
     }
-*/    
+   
 }
