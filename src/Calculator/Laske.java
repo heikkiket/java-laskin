@@ -5,10 +5,9 @@
  */
 
 //Testaan muutoksen tekemistä lisäämällä tarpeettoman kommentin.
-package simulointi;
+package Calculator;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  *

@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package simulointi;
+package Calculator;
 
 /**
  *
- * @author heikki
+ * @author Heikki Ketoharju
  */
 abstract class Symbol {
     String value;
