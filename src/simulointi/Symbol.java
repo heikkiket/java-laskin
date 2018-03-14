@@ -7,7 +7,7 @@ package simulointi;
 
 /**
  *
- * @author heikki
+ * @author Heikki Ketoharju
  */
 abstract class Symbol {
     String value;
