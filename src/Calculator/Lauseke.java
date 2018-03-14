@@ -179,7 +179,7 @@ public class Lauseke {
         return false;
     }
     
-    public double laske() {
+    public double laske(String xx) {
         return laskija.laske();
     }
 
