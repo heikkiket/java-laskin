@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author heikki
+ * @author Heikki Ketoharju
  */
 public class Lauseke {
     private ArrayList<Symbol> alkiot;
@@ -76,18 +76,6 @@ public class Lauseke {
                 
             }
             
-            String palautettava = "";
-            for(Symbol listaus1 : outputQueue) {
-                palautettava = palautettava + listaus1.toString();
-            }
-            System.out.println(palautettava);
-            palautettava = "";
-            for(Operator listaus1 : operatorStack) {
-                palautettava = palautettava + listaus1.toString();
-            }
-            System.out.println(palautettava);
-            System.out.println("------------------------------------------------");
-            
         } //For päättyy
         
         
@@ -104,12 +92,52 @@ public class Lauseke {
         rpn = true;
     }
     
+    public void lueLauseke(String lauseke) {
+        for(int i =0; i < lauseke.length(); i++){
+            Symbol lisattava;
+            switch(lauseke.charAt(i)) {
+                case '0':
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                case '9':
+                    lisattava = new DecimalDigit(Double.parseDouble(String.valueOf(i)));
+                    alkiot.add(lisattava);
+                    break;
+                case '+':
+                    lisattava = new Plus();
+                    alkiot.add(lisattava);
+                    break;
+                case '-':
+                    lisattava = new Minus();
+                    alkiot.add(lisattava);
+                    break;
+                case '*':
+                    lisattava = new Times();
+                    alkiot.add(lisattava);
+                    break;
+                case '/':
+                    lisattava = new Division();
+                    alkiot.add(lisattava);
+                    break;
+                case '^':
+                    lisattava = new Pow();
+                    alkiot.add(lisattava);
+                    break;
+            }
+        }
+    }
 
     @Override
     public String toString() {
         String palautettava = "";
         for(Symbol alkio : alkiot ) {
-            palautettava = palautettava + alkio.toString();
+            palautettava = palautettava + " " + alkio.toString();
         }
         return palautettava;
     }
