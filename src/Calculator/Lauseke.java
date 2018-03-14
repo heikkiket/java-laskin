@@ -14,10 +14,19 @@ import java.util.ArrayList;
 public class Lauseke {
     private ArrayList<Symbol> alkiot;
     private boolean rpn;
+    private Laske laskija;
 
     public Lauseke() {
+        this(null);
+    }
+    
+    public Lauseke(String lauseke) {
+        if(lauseke != null) {
+            lueLauseke(lauseke);
+        }
         alkiot = new ArrayList<>();
         rpn = false;
+        laskija = new Laske(this);
     }
 
     public boolean isRpn() {

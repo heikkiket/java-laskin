@@ -14,15 +14,13 @@ import java.util.ArrayList;
  * @author simo
  */
 public class Laske {
-    //static Scanner lukija = new Scanner(System.in);
+    private Lauseke lauseke;
     ArrayList<Double> luvut;
     ArrayList<Character> laskut;
     ArrayList<Sulku> sulut;
     
-    Laske (){
-        luvut = new ArrayList();
-        laskut = new ArrayList();
-        sulut = new ArrayList();
+    Laske (Lauseke lauseke){
+        this.lauseke = lauseke;
     }
     public double lueLuvut(String n1){
         double dLuku=0.0;

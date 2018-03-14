@@ -40,6 +40,8 @@ public class Simulointi {
         System.out.println(lasku2);
         lasku2.shuntingYard();
         System.out.println(lasku2);
+        Lauseke lasku3 = new Lauseke();
+        lasku3.shuntingYard();
         
         lasku.addSymbol(kolme);
         lasku.addSymbol(plus);
