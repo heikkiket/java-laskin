@@ -34,7 +34,11 @@ public class Lauseke {
     }
 
     public ArrayList<Symbol> getAlkiot() {
-        return alkiot;
+        ArrayList<Symbol> palautettava = new ArrayList<>();
+        for(Symbol alkio : alkiot) {
+            palautettava.add(alkio);
+        }
+        return palautettava;
     }
     
     public void addSymbol(Symbol symboli) {
@@ -179,7 +183,7 @@ public class Lauseke {
         return false;
     }
     
-    public double laske(String xx) {
+    public double laske() {
         return laskija.laske();
     }
 

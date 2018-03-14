@@ -17,9 +17,7 @@ public class Controller {
     private TextField outputTxt;
     @FXML
     private TextArea resultTxt;
-
-    private Lauseke kysymys = new Lauseke();
-
+    
     Boolean newStart = true;
 
 
@@ -47,7 +45,10 @@ public class Controller {
     @FXML
     private void proccessOperator (ActionEvent event){
         resultTxt.setText(outputTxt.getText());
-        outputTxt.setText(String.valueOf(kysymys.laske(outputTxt.getText())));
+        String lauseke = outputTxt.getText();
+        Lauseke kysymys = new Lauseke();
+        kysymys.lueLauseke(lauseke);
+        outputTxt.setText(String.valueOf(kysymys.laske()));
         newStart = true;
     }
 

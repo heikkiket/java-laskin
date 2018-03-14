@@ -94,30 +94,37 @@ public class Laske {
     
     public double laske(){
         double laskutulos=0.0;
-        ArrayList<Symbol> luvut=new ArrayList();//desimaaliluvut
+        ArrayList<Symbol> luvut = new ArrayList<>();//desimaaliluvut
+        
+        System.out.println(lauseke);
+        if(lauseke.isRpn() == false) {
+            lauseke.shuntingYard();
+        }
+        System.out.println(lauseke);
         ArrayList<Symbol> lasku = lauseke.getAlkiot(); // rpn- lasku
         int koko = 0;
-        double tulos =0.0;
         
         koko = lasku.size();
-          
-            //(+ ja -) -lasku
-            for (Symbol alkio: lasku){
-                if (alkio instanceof DecimalDigit){
-                    luvut.add(0,alkio);
-                }else{
-                    DecimalDigit luku1 = (DecimalDigit) luvut.get(1);
-                    DecimalDigit luku2 = (DecimalDigit) luvut.get(0);
-                    Operator laskutoimitus = (Operator) alkio;
-                    tulos = this.laskeLuvut(luku1.getValue(), luku2.getValue(),alkio.value.charAt(0));
-                    luvut.add(0, new DecimalDigit(tulos));
-                    luvut.remove(1);
-                    luvut.remove(1);
-                }
-
-            }
         
-        laskutulos= Double.parseDouble(luvut.get(0).value);
+        System.out.println("Koko: " + koko);
+
+        for (Symbol alkio: lasku) {
+            if (alkio instanceof DecimalDigit){
+                luvut.add(0,alkio);
+            }else{
+                DecimalDigit luku1 = (DecimalDigit) luvut.get(1);
+                DecimalDigit luku2 = (DecimalDigit) luvut.get(0);
+                Operator laskutoimitus = (Operator) alkio;
+                double tulos = this.laskeLuvut(luku1.getValue(), luku2.getValue(),alkio.value.charAt(0));
+                luvut.add(0, new DecimalDigit(tulos));
+                luvut.remove(1);
+                luvut.remove(1);
+            }
+
+        }
+        
+        DecimalDigit tulos = (DecimalDigit) luvut.get(0);
+        laskutulos= tulos.getValue();
         //laskutulos=lukuja.get(0);
         return laskutulos;
     }
