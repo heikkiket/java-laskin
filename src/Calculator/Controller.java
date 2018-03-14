@@ -17,6 +17,7 @@ public class Controller {
     @FXML
     private void proccesNum(ActionEvent event){
         outputTxt.requestFocus();
+        outputTxt.setStyle("-fx-display-caret: false;");
         String value=((Button)event.getSource()).getText();
         String output=outputTxt.getText();
         String id=((Button)event.getSource()).getId();
@@ -43,5 +44,10 @@ public class Controller {
         String valueOf=outputTxt.getText();
         if (valueOf.length()>1) {outputTxt.setText(valueOf.substring(0,valueOf.length()-1));}
         else {outputTxt.setText("0");}
+    }
+
+    @FXML
+    private void proccessMC(ActionEvent event){
+        outputTxt.setStyle("-fx-display-caret: true;");
     }
 }
