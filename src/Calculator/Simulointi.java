@@ -37,6 +37,9 @@ public class Simulointi {
         Lauseke lasku = new Lauseke();
         Lauseke lasku2 = new Lauseke();
         lasku2.lueLauseke(lauseke);
+        System.out.println(lasku2);
+        lasku2.shuntingYard();
+        System.out.println(lasku2);
         
         lasku.addSymbol(kolme);
         lasku.addSymbol(plus);
@@ -54,7 +57,6 @@ public class Simulointi {
         lasku.addSymbol(potenssiin);
         lasku.addSymbol(pi);
         
-        System.out.println(lasku2);
     }
     
 }

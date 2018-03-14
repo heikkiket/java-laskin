@@ -95,26 +95,10 @@ public class Lauseke {
     public void lueLauseke(String lauseke) {
         for(int i =0; i < lauseke.length(); i++){
             Symbol lisattava;
+            String luku ="";
             switch(lauseke.charAt(i)) {
-                case '0':
-                case '1':
-                case '2':
-                case '3':
-                case '4':
-                case '5':
-                case '6':
-                case '7':
-                case '8':
-                case '9':
-                    lisattava = new DecimalDigit(Double.parseDouble(String.valueOf(i)));
-                    alkiot.add(lisattava);
-                    break;
                 case '+':
                     lisattava = new Plus();
-                    alkiot.add(lisattava);
-                    break;
-                case '-':
-                    lisattava = new Minus();
                     alkiot.add(lisattava);
                     break;
                 case '*':
@@ -129,8 +113,57 @@ public class Lauseke {
                     lisattava = new Pow();
                     alkiot.add(lisattava);
                     break;
+                case '(':
+                    lisattava = new OpenParenthesis();
+                    alkiot.add(lisattava);
+                    break;
+                case ')':
+                    lisattava = new CloseParenthesis();
+                    alkiot.add(lisattava);
+                    break;
+                case '-':
+                    if(lauseke.charAt(i) == '-' && onNumero(lauseke.charAt(i+1))) {
+                        luku ="-";
+                        i++;
+                    } else {
+                        lisattava = new Minus();
+                        alkiot.add(lisattava);
+                        break;
+                    }
+                default:
+                    while(onNumero(lauseke.charAt(i))) {
+                        luku = luku + lauseke.charAt(i);
+                        
+                        i++;
+                        if(i == lauseke.length()) {
+                            break;
+                        }
+                    }
+                    if(luku.length() > 0) {
+                        lisattava = new DecimalDigit(Double.parseDouble(luku));
+                        alkiot.add(lisattava);
+                        luku = "";
+                    }
             }
         }
+    }
+    
+    private boolean onNumero(char c) {
+        switch(c) {
+                case '0':
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                case '9':
+                case '.':
+                    return true;
+        }
+        return false;
     }
 
     @Override
