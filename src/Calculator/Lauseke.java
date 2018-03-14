@@ -32,6 +32,10 @@ public class Lauseke {
     public boolean isRpn() {
         return rpn;
     }
+
+    public ArrayList<Symbol> getAlkiot() {
+        return alkiot;
+    }
     
     public void addSymbol(Symbol symboli) {
         alkiot.add(symboli);
