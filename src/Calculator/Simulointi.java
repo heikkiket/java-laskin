@@ -57,7 +57,9 @@ public class Simulointi {
         lasku.addSymbol(potenssiin);
         lasku.addSymbol(kaksi);
         lasku.addSymbol(potenssiin);
-        lasku.addSymbol(pi);
+        lasku.addSymbol(kolme);
+        
+        lasku.shuntingYard();
         
     }
     

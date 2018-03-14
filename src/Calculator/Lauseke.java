@@ -178,6 +178,10 @@ public class Lauseke {
         }
         return false;
     }
+    
+    public double laske() {
+        return laskija.laske();
+    }
 
     @Override
     public String toString() {
