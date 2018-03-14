@@ -22,6 +22,11 @@ public class Laske {
     Laske (Lauseke lauseke){
         this.lauseke = lauseke;
     }
+    
+    public double laske() {
+        return 0.0;
+    }
+    
     public double lueLuvut(String n1){
         double dLuku=0.0;
         String tulos = "";
