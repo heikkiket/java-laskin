@@ -5,13 +5,38 @@
  */
 package simulointi;
 
-import java.util.Scanner;
 
 /**
  *
  * @author simo
  */
-public class testaaLaske {
+
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class Main extends Application {
+
+    @Override
+    public void start(Stage primaryStage) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("View.fxml"));
+        primaryStage.setTitle("Calculator");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+    }
+
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
+
+
+
+/*public class testaaLaske {
     static Scanner lukija = new Scanner(System.in);
     public static void main(String[] args) {
         double eka=0.0, toka;
@@ -39,12 +64,12 @@ public class testaaLaske {
         System.out.printf("%15s%12.3f\n","eka * toka = ",laske1.laskeLuvut(eka, toka, '*'));
         System.out.printf("%15s%12.3f\n","eka / toka = ",laske1.laskeLuvut(eka, toka, '/'));
         System.out.printf("%27s\n","==========================");
-        /*
+
         laskin.luvut.add(laskin.laskeLuvut(eka, toka, '+'));
         laskin.luvut.add(laskin.laskeLuvut(eka, toka, '-'));
         laskin.luvut.add(laskin.laskeLuvut(eka, toka, '*'));
         laskin.luvut.add(laskin.laskeLuvut(eka, toka, '/'));  
-       */ 
+
         System.out.println("");
         for (int i = 0; i< laske1.luvut.size();i++){
             System.out.println(laske1.luvut.get(i));
@@ -56,4 +81,4 @@ public class testaaLaske {
 
     }
     
-}
+}*/
