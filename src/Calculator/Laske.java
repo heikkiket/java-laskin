@@ -116,7 +116,7 @@ public class Laske {
                 DecimalDigit luku2 = (DecimalDigit) luvut.get(0);
                 Operator laskutoimitus = (Operator) alkio;
                 double tulos = this.laskeLuvut(luku1.getValue(), luku2.getValue(),alkio.value.charAt(0));
-                luvut.add(0, new DecimalDigit(tulos));
+                luvut.add(0, new DecimalDigit(String.valueOf(tulos)));
                 luvut.remove(1);
                 luvut.remove(1);
             }

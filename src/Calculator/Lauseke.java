@@ -153,7 +153,7 @@ public class Lauseke {
                     if(onNumero(lauseke.charAt(i))) {
                         luku = luku + lauseke.charAt(i);
                         if((i == lauseke.length()-1) || !onNumero(lauseke.charAt(i+1))) {
-                            lisattava = new DecimalDigit(Double.parseDouble(luku));
+                            lisattava = new DecimalDigit(luku);
                             alkiot.add(lisattava);
                             luku = "";
                         }
