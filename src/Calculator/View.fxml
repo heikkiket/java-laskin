@@ -59,7 +59,7 @@
                         <Font size="24.0" />
                     </font>
                 </Button>
-                <Button id="sqrt(" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#processOp" prefHeight="50.0" prefWidth="90.0" text="√">
+                <Button id="^0.5" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#processOp" prefHeight="50.0" prefWidth="90.0" text="√">
                     <font>
                         <Font size="24.0" />
                     </font>

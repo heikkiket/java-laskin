@@ -71,7 +71,7 @@ public class Laske {
                                 }
                         }
                     }
-                    ;//ei tehdä mitään
+                    //ei tehdä mitään
                 }
             }            
         }
