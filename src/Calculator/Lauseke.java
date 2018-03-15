@@ -34,7 +34,11 @@ public class Lauseke {
     }
 
     public ArrayList<Symbol> getAlkiot() {
-        return alkiot;
+        ArrayList<Symbol> palautettava = new ArrayList<>();
+        for(Symbol alkio : alkiot) {
+            palautettava.add(alkio);
+        }
+        return palautettava;
     }
     
     public void addSymbol(Symbol symboli) {
@@ -106,9 +110,11 @@ public class Lauseke {
     }
     
     public void lueLauseke(String lauseke) {
+        String luku ="";
         for(int i =0; i < lauseke.length(); i++){
             Symbol lisattava;
-            String luku ="";
+
+            System.out.println(i);
             switch(lauseke.charAt(i)) {
                 case '+':
                     lisattava = new Plus();
@@ -135,7 +141,7 @@ public class Lauseke {
                     alkiot.add(lisattava);
                     break;
                 case '-':
-                    if(lauseke.charAt(i) == '-' && onNumero(lauseke.charAt(i+1))) {
+                    if(lauseke.charAt(i) == '-' && !onNumero(lauseke.charAt(i-1))) {
                         luku ="-";
                         i++;
                     } else {
@@ -144,12 +150,12 @@ public class Lauseke {
                         break;
                     }
                 default:
-                    while(onNumero(lauseke.charAt(i))) {
+                    if(onNumero(lauseke.charAt(i))) {
                         luku = luku + lauseke.charAt(i);
-                        
-                        i++;
-                        if(i == lauseke.length()) {
-                            break;
+                        if((i == lauseke.length()-1) || !onNumero(lauseke.charAt(i+1))) {
+                            lisattava = new DecimalDigit(Double.parseDouble(luku));
+                            alkiot.add(lisattava);
+                            luku = "";
                         }
                     }
                     if(luku.length() > 0) {
@@ -179,7 +185,7 @@ public class Lauseke {
         return false;
     }
     
-    public double laske(String xx) {
+    public double laske() {
         return laskija.laske();
     }
 

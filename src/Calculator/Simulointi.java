@@ -33,34 +33,13 @@ public class Simulointi {
         DecimalDigit pi = new DecimalDigit("3.1415");
         
 
-        String lauseke = "3.0 + 4.0 * 2.0 / ( 1.0 - 5.0 ) ^ 2.0 ^ 3.1415";
-        Lauseke lasku = new Lauseke();
-        Lauseke lasku2 = new Lauseke();
-        lasku2.lueLauseke(lauseke);
-        System.out.println(lasku2);
-        lasku2.shuntingYard();
-        System.out.println(lasku2);
-        Lauseke lasku3 = new Lauseke();
-        lasku3.shuntingYard();
-        
-        lasku.addSymbol(kolme);
-        lasku.addSymbol(plus);
-        lasku.addSymbol(neljä);
-        lasku.addSymbol(kerto);
-        lasku.addSymbol(kaksi);
-        lasku.addSymbol(jako);
-        lasku.addSymbol(sulkuauki);
-        lasku.addSymbol(yksi);
-        lasku.addSymbol(miinus);
-        lasku.addSymbol(viisi);
-        lasku.addSymbol(sulkukiinni);
-        lasku.addSymbol(potenssiin);
-        lasku.addSymbol(kaksi);
-        lasku.addSymbol(potenssiin);
-        lasku.addSymbol(kolme);
-        
+        String lauseke = "2+3+-5/(23+23.5*(34.4-23))";
+        Lauseke lasku = new Lauseke("");
+        lasku.lueLauseke(lauseke);
+        System.out.println(lasku);
         lasku.shuntingYard();
-        
+        System.out.println(lasku);
+       
     }
     
 }
