@@ -16,8 +16,8 @@ abstract class Symbol {
 class DecimalDigit extends Symbol {
     private final double value;
 
-    public DecimalDigit(double input) {
-        this.value = input;
+    public DecimalDigit(String input) {
+        this.value = Double.parseDouble(input);
     }
 
     public double getValue() {
@@ -42,6 +42,10 @@ class Operator extends Symbol {
 
     public boolean isLeftAssociative() {
         return leftAssociative;
+    }
+    
+    public double laske(double luku1l, double luku2) {
+        return 0.0;
     }
     
     @Override

@@ -25,12 +25,12 @@ public class Simulointi {
         Operator sulkukiinni = new CloseParenthesis();
         
         
-        DecimalDigit kolme = new DecimalDigit(3);
-        DecimalDigit neljä = new DecimalDigit(4);
-        DecimalDigit kaksi = new DecimalDigit(2);
-        DecimalDigit yksi = new DecimalDigit(1);
-        DecimalDigit viisi = new DecimalDigit(5);
-        DecimalDigit pi = new DecimalDigit(3.1415);
+        DecimalDigit kolme = new DecimalDigit("3");
+        DecimalDigit neljä = new DecimalDigit("4");
+        DecimalDigit kaksi = new DecimalDigit("2");
+        DecimalDigit yksi = new DecimalDigit("1");
+        DecimalDigit viisi = new DecimalDigit("5");
+        DecimalDigit pi = new DecimalDigit("3.1415");
         
 
         String lauseke = "3.0 + 4.0 * 2.0 / ( 1.0 - 5.0 ) ^ 2.0 ^ 3.1415";

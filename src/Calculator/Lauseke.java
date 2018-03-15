@@ -153,7 +153,7 @@ public class Lauseke {
                         }
                     }
                     if(luku.length() > 0) {
-                        lisattava = new DecimalDigit(Double.parseDouble(luku));
+                        lisattava = new DecimalDigit(luku);
                         alkiot.add(lisattava);
                         luku = "";
                     }
