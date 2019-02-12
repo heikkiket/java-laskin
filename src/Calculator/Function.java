@@ -9,16 +9,22 @@ package Calculator;
  *
  * @author heikki
  */
-public class Function extends DecimalDigit {
+public class Function extends Operator {
     private String funktio;
     private Lauseke funktiolauseke;
     private double value;
-    
+
     public Function(String input) {
         funktio = input;
         funktiolauseke = new Lauseke();
         funktiolauseke.lueLauseke(funktio);
-        this.value = "0";
     }
+
+    public double laske() {
+        
+        return funktiolauseke.laske();
+    }
+    
+    
     
 }

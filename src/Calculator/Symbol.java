@@ -35,9 +35,14 @@ class DecimalDigit extends Symbol {
 class Operator extends Symbol {
     int weight;
     boolean leftAssociative;
+    boolean unary;
 
     public int weight() {
         return this.weight;
+    }
+
+    public boolean isUnary() {
+        return unary;
     }
 
     public boolean isLeftAssociative() {
@@ -60,6 +65,7 @@ class Plus extends Operator {
         this.value = "+";
         this.weight = 1;
         this.leftAssociative = false;
+        this.unary = false;
     } 
     
 }
@@ -70,6 +76,7 @@ class Minus extends Operator {
         this.value = "-";
         this.weight = 1;
         this.leftAssociative = true;
+        this.unary = false;
     }
 }
 
@@ -79,6 +86,7 @@ class Times extends Operator {
         this.value = "*";
         this.weight = 2;
         this.leftAssociative = false;
+        this.unary = false;
     }
     
 }
@@ -89,6 +97,7 @@ class Division extends Operator {
         this.value = "/";
         this.weight = 2;
         this.leftAssociative = true;
+        this.unary = false;
     }
 }
 
@@ -98,8 +107,20 @@ class Pow extends Operator {
         this.value = "^";
         this.weight = 3;
         this.leftAssociative = false;
+        this.unary = false;
     }
 
+}
+
+class Root extends Operator {
+
+    public Root() {
+        this.value = "sqrt";
+        this.weight = 4;
+        this.leftAssociative = false;
+        this.unary = false
+    }
+    
 }
 
 class OpenParenthesis extends Operator {
